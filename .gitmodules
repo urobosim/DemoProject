@@ -1,0 +1,18 @@
+[submodule "Plugins/URoboVision"]
+	path = Plugins/URoboVision
+	url = git@github.com:urobosim/URoboVision.git
+[submodule "Plugins/UUtils"]
+	path = Plugins/UUtils
+	url = git@github.com:urobosim/UUtils.git
+[submodule "Plugins/UROSWorldControl"]
+	path = Plugins/UROSWorldControl
+	url = git@github.com:urobosim/UROSWorldControl.git
+[submodule "Plugins/URoboSim"]
+	path = Plugins/URoboSim
+	url = git@github.com:urobosim/URoboSim.git
+[submodule "Plugins/UTFPublisher"]
+	path = Plugins/UTFPublisher
+	url = git@github.com:NeumannM89/UTFPublisher.git
+[submodule "Plugins/UROSBridge"]
+	path = Plugins/UROSBridge
+	url = git@github.com:urobosim/UROSBridge.git
