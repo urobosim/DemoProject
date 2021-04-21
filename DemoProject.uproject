@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{0004A89B-08D8-2321-72AE-E614B2508E9E}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "DemoProject",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

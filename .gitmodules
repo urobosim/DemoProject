@@ -10,9 +10,10 @@
 [submodule "Plugins/URoboSim"]
 	path = Plugins/URoboSim
 	url = git@github.com:urobosim/URoboSim.git
+    branch = dev
 [submodule "Plugins/UTFPublisher"]
 	path = Plugins/UTFPublisher
-	url = git@github.com:NeumannM89/UTFPublisher.git
+	url = git@github.com:urobosim/UTFPublisher.git
 [submodule "Plugins/UROSBridge"]
 	path = Plugins/UROSBridge
 	url = git@github.com:urobosim/UROSBridge.git
