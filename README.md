@@ -6,12 +6,12 @@
 - ROS Melodic full install http://wiki.ros.org/melodic/Installation/Ubuntu
 - Unreal Engine: [Install Guide](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/), specifically [version 4.22.3](https://github.com/EpicGames/UnrealEngine/archive/refs/tags/4.22.3-release.tar.gz) (downloads the tarball)
   - Unreal requires a lot of disc space, at least 60 GB for the engine itself, and with several project even more. If space is scarse, remember to delete the tarball after unpacking and before building the engine.
-  - **Making** the Unreal engine takes a lot of computaion time. Schedule it adequatly.
+  - **Making** the Unreal engine takes a lot of computaion time. Schedule it adequately.
 
 Check the installation of Unreal by launching the engine under `<unreal-path>/Engine/Binaries/Linux/UE4Editor`. Since it requires OpenGL or Vulkan, running it from a remote machine can get finicky.
 
 ## Importing this Demo Project
-Clone this repository and it's submodules at a location of your choice.
+Clone this repository and its submodules at a location of your choice.
 ```
 # Via SSH
 git clone --branch dev --recurse-submodules git@github.com:urobosim/DemoProject.git
@@ -19,11 +19,11 @@ git clone --branch dev --recurse-submodules git@github.com:urobosim/DemoProject.
 # Via HTTPS
 git clone --branch dev --recurse-submodules https://github.com/urobosim/DemoProject.git
 ```
-Launch the Unreal Engine, browse for an existing project, navigate to this repository's location and select the **.uproject* file. If the project doesn't launch properly, the submodules of this repository may be missing or corrupted. Check the terminal's log for further insight or ask the contributers of this repository.
+Launch the Unreal Engine, browse for an existing project, navigate to this repositorys location and select the **.uproject* file. If the project doesn't launch properly, the submodules of this repository may be missing or corrupted. Check the terminals log for further insight or ask the contributers of this repository.
 
 Find the *Content Browser* widget at the bottom of the UI. If it's not available, go to *Window > Content Browser > Content Browser 1* at the top bar to open the widget. You can drag & drop it to the bottom widget collection, since it will be used a lot. 
 
-In the *Content Browser*, go into Maps and find the Demo IAI Kitchen. Double click it to import the scene (do **not** drag & drop it into the scene, it will destroy the loading process). All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene, the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
+In the *Content Browser*, go into Maps and find the Demo IAI Kitchen. Double-click it to import the scene (do **not** drag & drop it into the scene, it will destroy the loading process). All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene, the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
 
 ## Interfacing with ROS
 
@@ -35,7 +35,7 @@ To link the Unreal Engine with ROS, a communication bridge must be established. 
 
 ### Rosbridge Setup
 
-The communicate with the the robot in the Unreal Engine from a host machine, additional comopents are required, including the host-side rosbridge, shared ROS messages and descriptions.
+The communicate with the the robot in the Unreal Engine from a host-machine, additional compoents are required, including the host-side rosbridge, shared ROS messages and descriptions.
 
 Create a catkin workspace and load the *unreal_demo_project.rosinstall* into its sources.
 
@@ -51,7 +51,7 @@ roslaunch urobosim_ros_config world.launch
 
 ## Additional Software Stacks
 
-Additional nodes are needed to control the robot in Unreal via CRAM plans and Giskard's motion planner, as well as perception and knowledge inference and logging.
+Additional nodes are needed to control the robot in Unreal via CRAM plans and Giskards motion planner, as well as perception and knowledge inference and logging.
 
 Follow the installation instructons for each of the following software stacks, as required for the specific purpose. Using separate, overlayed workspaces is recommended.
 - [Install Giskard](https://github.com/SemRoCo/giskardpy), the motion planner
@@ -73,7 +73,7 @@ In Emacs, load the demo scenario:
 cram_sim_log_generator <enter>
 <enter>
 ```
-If the package can't be found, check if the CRAM repository is actually on the test-branch of urobosim's fork. Also, make sure that CRAM is sourced properly. Use `echo $CMAKE_PREFIX_PATH` to check the currently sourced workspaces.
+If the package can't be found, check if the CRAM repository is actually on the test-branch of the urobosim fork. Also, make sure that CRAM is sourced properly. Use `echo $CMAKE_PREFIX_PATH` to check the currently sourced workspaces.
 
 Run the scenario:
 ```
