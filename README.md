@@ -21,9 +21,7 @@ git clone --branch dev --recurse-submodules https://github.com/urobosim/DemoProj
 ```
 Launch the Unreal Engine, browse for an existing project, navigate to this repositorys location and select the **.uproject* file. If the project doesn't launch properly, the submodules of this repository may be missing or corrupted. Check the terminals log for further insight or ask the contributers of this repository.
 
-Find the *Content Browser* widget at the bottom of the UI. If it's not available, go to *Window > Content Browser > Content Browser 1* at the top bar to open the widget. You can drag & drop it to the bottom widget collection, since it will be used a lot. 
-
-In the *Content Browser*, go into Maps and find the Demo IAI Kitchen. Double-click it to import the scene (do **not** drag & drop it into the scene, it will destroy the loading process). All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene, the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
+Find the *Content Browser* widget at the bottom of the UI, go into Maps and find the Demo IAI Kitchen. Double-click it to import the scene (do **not** drag & drop it into the scene, it will destroy the loading process). All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene, the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
 
 ## Interfacing with ROS
 
@@ -31,7 +29,9 @@ This section requires a properly set-up full ROS installation (link in the requi
 
 ### Unreal Websocket Setup
 
-To link the Unreal Engine with ROS, a communication bridge must be established. In the Unreal Engine, while the Demo IAI Kitchen is loaded, left-click the robot's model in the scene. Multiple widgets will pop up on the right of the screen. In the *RModel* widget there are two plugins. Double-click the icon of *RROSCommunicationComponent* which opens the plugin editor. Under *ROSCommunication*, change the *Websocket IPAddr* to the IP of your desired ROS Master, usually the IP of the machine you're currently running. Check the IP with `echo $ROS_MASTER_URI` if in doubt.
+To link the Unreal Engine with ROS, a communication bridge must be established. In the Unreal Engine, while the Demo IAI Kitchen is loaded, left-click the robot's model in the scene. Multiple widgets will pop up on the right of the screen. In the *RModel* widget open the *Plugins* section, where there are two plugins. Double-click the icon of *RROSCommunicationComponent* which opens the plugin editor. Under *ROSCommunication*, change the *Websocket IPAddr* to the IP of your respective ROS Master, usually the IP of the machine you're currently running. Check the IP with `echo $ROS_MASTER_URI` if in doubt.
+
+Save your settings.
 
 ### Rosbridge Setup
 
