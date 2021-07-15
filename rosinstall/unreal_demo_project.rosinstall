@@ -23,3 +23,11 @@
    local-name: omni_pose_follower
    uri: git@github.com:code-iai/omni_pose_follower.git
    version: master
+- git:
+   local-name: iai_naive_kinematics_sim
+   uri: git@github.com:code-iai/iai_naive_kinematics_sim.git
+   version: 18.04
+- git:
+   local-name: iai_maps
+   uri: git@github.com:code-iai/iai_maps.git
+   version: master
