@@ -37,7 +37,13 @@ Save your settings.
 
 To communicate with the robot in the Unreal Engine from a host-machine additional components are required, including the host-side rosbridge, shared ROS messages and descriptions.
 
-Create a catkin workspace, use wstool to import deps from repositories, and rosdep for apt sources. 
+#### Installing dependencies
+
+First, install the following packages for commication via websockets, the TF2 buffer, kinematic models and a state publisher.
+```
+sudo apt install ros-melodic-rosbridge-server ros-melodic-robot-state-publisher ros-melodic-joint-state-publisher-gui ros-melodic-tf ros-melodic-tf2 ros-melodic-tf2-ros ros-melodic-pr2-arm-kinematics
+```
+Now create a catkin workspace for deps from repositories. Use wstool for git imports and rosdep for apt sources. 
 ```
 mkdir -p ~/unreal_project_ws/src
 cd ~/unreal_project_ws/src
@@ -52,20 +58,14 @@ Unless all dependencies are installed successfully, check for missing packages o
 Build the workspace either with the ros-native catkin or with `python-catkin-tools`, which can be added via apt.
 ```
 cd ~/unreal_project_ws
-# Native catkin
-catkin_make
-# With pythons catkin tools
-catkin build
-source ~/unreal_project_ws/devel/setup.bash 
-# rather put the top-level workspace in .bashrc
+catkin_make                                  # or 'catkin build'
+source ~/unreal_project_ws/devel/setup.bash  # rather put the top-level workspace in your .bashrc
 ```
-If the build process wasn't successful, install the missing packages via apt, find missing repositories in the code-iai github group or ask the contributers.
+If the build process wasn't successful, install the missing packages via apt, find missing repositories in the code-iai github group or ask the contributers for help.
 
-Additionally install the joint-state-publisher-gui via apt, which makes it easier to manipulate the robots environment, and is depended upon from the default launchfiles anyway.
-```
-sudo apt install ros-melodic-rosbridge-server ros-melodic-robot-state-publisher ros-melodic-joint-state-publisher-gui ros-melodic-tf ros-melodic-tf2 ros-melodic-tf2-ros ros-melodic-pr2-arm-kinematics
-```
-Finally, the connection to the ROS network can be established by launching the following nodes.
+#### Running The websocket
+
+Finally, the connection to the ROS network can be established by launching the following nodes. Make sure the workspace is sourced.
 ```
 #Launch rosbridge for communication between unreal and ROS
 roslaunch rosbridge_server rosbridge_websocket.launch websocket_external_port:=80
@@ -73,6 +73,7 @@ roslaunch rosbridge_server rosbridge_websocket.launch websocket_external_port:=8
 # Launch urobosim world
 roslaunch urobosim_ros_config world.launch
 ```
+Hit the 'Play' button in Unreal. The rosbridge terminal should indicate, that the connection has been established. Also use `rostopic list` to check, if the controller topics for the robot are published.
 
 ## Additional Software Stacks
 
@@ -84,7 +85,21 @@ Follow the installation instructons for each of the following software stacks, p
 - [Install Robosherlock](https://github.com/RoboSherlock/robosherlock), the robot perception framework
 - [Install CRAM](http://cram-system.org/installation), the task-planning architecture. (use the [test branch of the urobosim fork](https://github.com/urobosim/cram/tree/test) for development with Unreal)
 
-Minimal startup:
+### Using Giskard to move the PR2 in Unreal
+
+Giskard requires the `whole_body_controller` topics of the robot. To achieve that, make sure the rosbridge to Unreal is running properly.
+
+```
+roslaunch giskardpy giskardpy_pr2_unreal.launch
+```
+This launches Giskards trajectory planner. There may occur one timeout error for the state topic, which is fine for now.
+
+Launch RViz by executing `rviz`. Add the Robot Model to the scene. Add InteractiveMarkers and choose the topic; if `/eef_control/update` is not available, check the giskard setup again. Use the markers to move the robot and see the robot in Unreal move.
+
+### Using CRAM with Giskard to execute a scenario in Unreal
+
+Include the [cram_urobosim](https://github.com/urobosim/cram_urobosim) repository into the CRAM workspace. Build the workspace again.
+
 ```
 # Launch Giskard motion planner for unreal
 roslaunch giskardpy giskardpy_pr2_unreal.launch
