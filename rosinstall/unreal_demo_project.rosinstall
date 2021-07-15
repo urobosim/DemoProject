@@ -1,9 +1,5 @@
 # Sources for the Unreal Engine DemoProject to link with ROS.
 - git:
-   local-name: cram_urobosim
-   uri: git@github.com:urobosim/cram_urobosim.git
-   version: master
-- git:
    local-name: unreal_ros_pkgs
    uri: git@github.com:urobosim/unreal_ros_pkgs.git
    version: master
