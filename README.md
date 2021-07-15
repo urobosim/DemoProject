@@ -68,7 +68,7 @@ sudo apt install ros-melodic-rosbridge-server ros-melodic-robot-state-publisher 
 Finally, the connection to the ROS network can be established by launching the following nodes.
 ```
 #Launch rosbridge for communication between unreal and ROS
-roslaunch rosbridge_server rosbridge_websocket.launch
+roslaunch rosbridge_server rosbridge_websocket.launch websocket_external_port:=80
 
 # Launch urobosim world
 roslaunch urobosim_ros_config world.launch
