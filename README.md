@@ -47,7 +47,7 @@ wstool up
 rosdep update
 rosdep install --from-paths --ignore-src . -r
 ```
-Unless all dependencies are installed successfully, check for missing packages or contact the collaborators of this project.
+Unless all dependencies are installed successfully, check for missing packages or contact the contributors of this project.
 
 Build the workspace either with the ros-native catkin or with `python-catkin-tools`, which can be added via apt.
 ```
@@ -59,9 +59,9 @@ catkin build
 source ~/unreal_project_ws/devel/setup.bash 
 # rather put the top-level workspace in .bashrc
 ```
-If the build process wasn't successful, install the missing packages via apt, find missing repositories in the code-iai github group or as the constributers.
+If the build process wasn't successful, install the missing packages via apt, find missing repositories in the code-iai github group or ask the contributers.
 
-Additionally install the joint-state-publisher-gui via apt, which makes it easier to manipulate the robots environment.
+Additionally install the joint-state-publisher-gui via apt, which makes it easier to manipulate the robots environment, and is depended upon from the default launchfiles anyway.
 ```
 sudo apt install ros-melodic-joint-state-publisher-gui
 ```
