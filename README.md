@@ -63,7 +63,7 @@ If the build process wasn't successful, install the missing packages via apt, fi
 
 Additionally install the joint-state-publisher-gui via apt, which makes it easier to manipulate the robots environment, and is depended upon from the default launchfiles anyway.
 ```
-sudo apt install ros-melodic-joint-state-publisher-gui
+sudo apt install ros-melodic-rosbridge-server ros-melodic-robot-state-publisher ros-melodic-joint-state-publisher-gui ros-melodic-tf ros-melodic-tf2 ros-melodic-tf2-ros ros-melodic-pr2-arm-kinematics
 ```
 Finally, the connection to the ROS network can be established by launching the following nodes.
 ```
