@@ -1,0 +1,29 @@
+# Sources for the Unreal Engine DemoProject to link with ROS.
+- git:
+   local-name: cram_urobosim
+   uri: git@github.com:urobosim/cram_urobosim.git
+   version: master
+- git:
+   local-name: unreal_ros_pkgs
+   uri: git@github.com:urobosim/unreal_ros_pkgs.git
+   version: master
+- git:
+   local-name: urobosim_msgs
+   uri: git@github.com:urobosim/urobosim_msgs.git
+   version: master
+- git:
+   local-name: urobosim_ros_config
+   uri: git@github.com:urobosim/urobosim_ros_config.git
+   version: master
+- git:
+   local-name: iai_pr2
+   uri: git@github.com:code-iai/iai_pr2.git
+   version: master
+- git:
+   local-name: rosbridge_suite
+   uri: git@github.com:RobotWebTools/rosbridge_suite.git
+   version: master
+- git:
+   local-name: omni_pose_follower
+   uri: git@github.com:code-iai/omni_pose_follower.git
+   version: master
