@@ -37,10 +37,35 @@ Save your settings.
 
 The communicate with the the robot in the Unreal Engine from a host-machine, additional compoents are required, including the host-side rosbridge, shared ROS messages and descriptions.
 
-Create a catkin workspace and load the *unreal_demo_project.rosinstall* into its sources.
+Create a catkin workspace, use wstool to import deps from repositories, and rosdep for apt sources. 
+```
+mkdir -p ~/unreal_project_ws/src
+cd ~/unreal_project_ws/src
+wstool init
+wstool merge https://raw.githubusercontent.com/urobosim/DemoProject/master/rosinstall/unreal_demo_project.rosinstall
+wstool up
+rosdep update
+rosdep install --from-paths --ignore-src . -r
+```
+Unless all dependencies are installed successfully, check for missing packages or contact the collaborators of this project.
 
-**TODO**
+Build the workspace either with the ros-native catkin or with `python-catkin-tools`, which can be added via apt.
+```
+cd ~/unreal_project_ws
+# Native catkin
+catkin_make
+# With pythons catkin tools
+catkin build
+source ~/unreal_project_ws/devel/setup.bash 
+# rather put the top-level workspace in .bashrc
+```
+If the build process wasn't successful, install the missing packages via apt, find missing repositories in the code-iai github group or as the constributers.
 
+Additionally install the joint-state-publisher-gui via apt, which makes it easier to manipulate the robots environment.
+```
+sudo apt install ros-melodic-joint-state-publisher-gui
+```
+Finally, the connection to the ROS network can be established by launching the following nodes.
 ```
 #Launch rosbridge for communication between unreal and ROS
 roslaunch rosbridge_server rosbridge_websocket.launch
@@ -51,9 +76,9 @@ roslaunch urobosim_ros_config world.launch
 
 ## Additional Software Stacks
 
-Additional nodes are needed to control the robot in Unreal via CRAM plans and Giskards motion planner, as well as perception and knowledge inference and logging.
+Further software stacks are needed to control the robot in Unreal via CRAM plans and Giskards motion planner, as well as perception and knowledge inference and logging.
 
-Follow the installation instructons for each of the following software stacks, as required for the specific purpose. Using separate, overlayed workspaces is recommended.
+Follow the installation instructons for each of the following software stacks, picking the ones required for your specific purpose. Using separate, overlayed workspaces is recommended.
 - [Install Giskard](https://github.com/SemRoCo/giskardpy), the motion planner
 - [Install Knowrob](https://github.com/knowrob/knowrob), the long-term memory, especially for NEEMs
 - [Install Robosherlock](https://github.com/RoboSherlock/robosherlock), the robot perception framework
