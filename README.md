@@ -68,7 +68,7 @@ If the build process wasn't successful, install the missing packages via apt, fi
 Finally, the connection to the ROS network can be established by launching the following nodes. Make sure the workspace is sourced.
 ```
 #Launch rosbridge for communication between unreal and ROS
-roslaunch rosbridge_server rosbridge_websocket.launch websocket_external_port:=80
+roslaunch rosbridge_server rosbridge_websocket.launch 
 
 # Launch urobosim world
 roslaunch urobosim_ros_config world.launch
