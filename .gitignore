@@ -1,3 +1,17 @@
+### Custom ###
+.kdev4/*
+.vscode/*
+*.pri
+MakeFile
+CMakeLists.txt
+DemoProject.code-workspace
+DemoProject.pro
+DemoProject.uproject
+DemoProject.workspace
+DemoProjectCodeCompletionFolders.txt
+DemoProjectCodeLitePreProcessor.txt
+
+### UnrealEngine ###
 # Visual Studio 2015 user specific files
 .vs/
 
@@ -72,3 +86,4 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
