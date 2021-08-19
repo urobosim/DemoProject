@@ -4,7 +4,7 @@
 
 - Ubuntu 18.04
 - ROS Melodic full install http://wiki.ros.org/melodic/Installation/Ubuntu
-- Unreal Engine: [Install Guide](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/), specifically [version 4.22.3](https://github.com/EpicGames/UnrealEngine/archive/refs/tags/4.22.3-release.tar.gz) (downloads the tarball)
+- Unreal Engine: [Install Guide](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/), specifically [version 4.25.4](https://github.com/EpicGames/UnrealEngine/archive/refs/tags/4.25.4-release.tar.gz) (downloads the tarball)
   - Unreal requires a lot of disc space, at least 60 GB for the engine itself, and with several project even more. If space is scarse, remember to delete the tarball after unpacking and before building the engine.
   - **Making** the Unreal engine takes a lot of computaion time. Schedule it adequately.
 
@@ -14,14 +14,20 @@ Check the installation of Unreal by launching the engine under `<unreal-path>/En
 Clone this repository and its submodules at a location of your choice.
 ```
 # Via SSH
-git clone --branch dev --recurse-submodules git@github.com:urobosim/DemoProject.git
+git clone --recurse-submodules git@github.com:urobosim/DemoProject.git
 
 # Via HTTPS
-git clone --branch dev --recurse-submodules https://github.com/urobosim/DemoProject.git
+git clone --recurse-submodules https://github.com/urobosim/DemoProject.git
 ```
-Launch the Unreal Engine, browse for an existing project, navigate to this repositorys location and select the **.uproject* file. If the project doesn't launch properly, the submodules of this repository may be missing or corrupted. Check the terminals log for further insight or ask the contributers of this repository.
+Launch the Unreal Engine together with the DemoProject by specifying the *.uproject* file to load.
 
-Find the *Content Browser* widget at the bottom of the UI, go into Maps and find the Demo IAI Kitchen. Double-click it to import the scene (do **not** drag & drop it into the scene, it will destroy the loading process). All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
+```bash
+<unreal-path>/UnrealEngine-4.25.4-release/Engine/Binaries/Linux/UE4Editor <projects-path>/DemoProject425/DemoProject.uproject
+```
+
+It is also possible to load the project via Unreal's project explorer, but this asks to create an identical copy for the DemoProject alongside the existing, which yields no benefit. On the first time loading the project a lot of thing are compiled, which can take a few minutes. When finished, the Unreal Engine shows a clear new world.
+
+To load the project's world, find the *Content Browser* widget at the bottom of the UI, go into Maps and double-click the **Demo IAI Kitchen**. Do **not** drag & drop it into the scene, as it will meddle with the loading process. All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
 
 ## Interfacing with ROS
 
@@ -98,7 +104,7 @@ Launch RViz by executing `rviz`. Add the Robot Model to the scene. Add Interacti
 
 ### Using CRAM with Giskard to execute a scenario in Unreal
 
-Include the [cram_urobosim](https://github.com/urobosim/cram_urobosim) repository into the CRAM workspace. Build the workspace again.
+Build the workspace again.
 
 ```
 # Launch Giskard motion planner for unreal
@@ -113,9 +119,13 @@ In Emacs, load the demo scenario:
 cram_sim_log_generator <enter>
 <enter>
 ```
-If the package can't be found, check if the CRAM repository is actually on the test-branch of the urobosim fork. Also, make sure that CRAM is sourced properly. Use `echo $CMAKE_PREFIX_PATH` to check the currently sourced workspaces.
+If the package can't be found, check if the CRAM repository is actually on the **test** branch of the urobosim fork. Also, make sure that CRAM is sourced properly. Use `echo $CMAKE_PREFIX_PATH` to check the currently sourced workspaces.
 
-Run the scenario:
-```
-TODO
+The main demo can be used in the following ways (from the REPL):
+
+```commonlisp
+(main)                                         ;; will launch the demo with default values
+(main :objects '(:cup :milk))                  ;; transports the cup and milk
+(main :logging-enabled NIL)                    ;; disables NEEMs logging
+(main :objects '(:spoon) :logging-enabled NIL) ;; transports only the spoon without NEEMs logging
 ```
