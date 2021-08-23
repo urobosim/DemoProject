@@ -29,15 +29,23 @@ It is also possible to load the project via Unreal's project explorer, but this 
 
 To load the project's world, find the *Content Browser* widget at the bottom of the UI, go into Maps and double-click the **Demo IAI Kitchen**. Do **not** drag & drop it into the scene, as it will meddle with the loading process. All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
 
+https://user-images.githubusercontent.com/13121212/130438306-555f254d-433d-4037-8334-f936567b5aab.mp4
+
 ## Interfacing with ROS
 
 This section requires a properly set-up full ROS installation (link in the requirements).
 
 ### Unreal Websocket Setup
 
-To link the Unreal Engine with ROS, a communication bridge must be established. In the Unreal Engine, while the Demo IAI Kitchen is loaded, left-click the robot's model in the scene. Multiple widgets will pop up on the right of the screen. In the *RModel* widget open the *Plugins* section, where there are two plugins. Double-click the icon of *RROSCommunicationComponent* which opens the plugin editor. Under *ROSCommunication* change the *Websocket IPAddr* to the IP of your respective ROS Master, which is usually the IP of the machine you're currently running. Check the IP with `echo $ROS_MASTER_URI` if in doubt.
+To link the Unreal Engine with ROS, a communication bridge must be established. The IP of the ROS master must be set at two locations.
 
-Save your settings.
+In the game instance for the WorldControl service. Select MyGameInstance in the top-most content folder and set the IP either to localhost, or the a specific ROS master. Save your settings.
+
+https://user-images.githubusercontent.com/13121212/130439081-7ae539a7-7092-4db6-a734-25af5544c06f.mp4
+
+Secondly, in the PR2 plugin for ROS communication between further actions, services and topics. While the Demo IAI Kitchen is loaded left-click the robot's model in the scene. Multiple widgets will pop up on the right of the screen. In the *RModel* widget open the *Plugins* section, where there are two plugins. Double-click the icon of *RROSCommunicationComponent* which opens the plugin editor. Under *ROSCommunication* change the *Websocket IPAddr* to the IP of your respective ROS Master, which is usually the IP of the machine you're currently running. Check the IP with `echo $ROS_MASTER_URI` if in doubt. Save your settings.
+
+https://user-images.githubusercontent.com/13121212/130439180-3fec443d-5786-418d-a00f-938d20a4f9a3.mp4
 
 ### Rosbridge Setup
 
@@ -80,6 +88,8 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 roslaunch urobosim_ros_config world.launch
 ```
 Hit the 'Play' button in Unreal. The rosbridge terminal should indicate, that the connection has been established. Also use `rostopic list` to check, if the controller topics for the robot are published.
+
+https://user-images.githubusercontent.com/13121212/130439641-041dd5bf-39bc-4ebb-b6bb-02d9d5325f04.mp4
 
 ## Additional Software Stacks
 
@@ -129,3 +139,13 @@ The main demo can be used in the following ways (from the REPL):
 (main :logging-enabled NIL)                    ;; disables NEEMs logging
 (main :objects '(:spoon) :logging-enabled NIL) ;; transports only the spoon without NEEMs logging
 ```
+
+## Additional Settings
+
+To enable the simulation to run in the background, allow the CPU to keep it's performance even if Unreal is not currently focussed. Go to the Editor Preferences, search for CPU and disable CPU throttle when run in background.
+
+https://user-images.githubusercontent.com/13121212/130439808-9c0044c7-4909-41f5-9f1a-d113b3c25976.mp4
+
+If the Content Browser doesn't show all the files located in the project directory, especially when working with plugins, the filter needs to be adjusted. Hit the View Option in the bottom left corner of the Content Browser and toggle visibility for the desired file types.
+
+https://user-images.githubusercontent.com/13121212/130440206-db2d877f-362d-4c33-ae05-ecf9e3955f4a.mp4
