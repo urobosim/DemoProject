@@ -1,34 +1,33 @@
 # Sources for the Unreal Engine DemoProject to link with ROS.
 - git:
    local-name: unreal_ros_pkgs
-   uri: git@github.com:urobosim/unreal_ros_pkgs.git
+   uri: https://github.com/urobosim/unreal_ros_pkgs.git
    version: master
 - git:
    local-name: urobosim_msgs
-   uri: git@github.com:urobosim/urobosim_msgs.git
+   uri: https://github.com/urobosim/urobosim_msgs.git
    version: master
 - git:
    local-name: urobosim_ros_config
-   uri: git@github.com:urobosim/urobosim_ros_config.git
+   uri: https://github.com/urobosim/urobosim_ros_config.git
    version: master
 - git:
    local-name: iai_pr2
-   uri: git@github.com:code-iai/iai_pr2.git
+   uri: https://github.com/code-iai/iai_pr2.git
    version: master
 - git:
    local-name: rosbridge_suite
-   uri: git@github.com:RobotWebTools/rosbridge_suite.git
+   uri: https://github.com/RobotWebTools/rosbridge_suite.git
    version: 0.11.3
 - git:
    local-name: omni_pose_follower
-   uri: git@github.com:code-iai/omni_pose_follower.git
+   uri: https://github.com/code-iai/omni_pose_follower.git
    version: master
 - git:
    local-name: iai_naive_kinematics_sim
-   uri: git@github.com:code-iai/iai_naive_kinematics_sim.git
+   uri: https://github.com/code-iai/iai_naive_kinematics_sim.git
    version: 18.04
 - git:
    local-name: iai_maps
-   uri: git@github.com:code-iai/iai_maps.git
+   uri: https://github.com/code-iai/iai_maps.git
    version: master
-
