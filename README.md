@@ -41,6 +41,8 @@ To link the Unreal Engine with ROS, a communication bridge must be established. 
 
 In the game instance for the WorldControl service. Select MyGameInstance in the top-most content folder and set the IP either to localhost, or the a specific ROS master. Save your settings.
 
+Update (not in the video): In MyGameInstance, set the Manager under World Control Game Instance to RWCManager.
+
 https://user-images.githubusercontent.com/13121212/130439081-7ae539a7-7092-4db6-a734-25af5544c06f.mp4
 
 Secondly, in the PR2 plugin for ROS communication between further actions, services and topics. While the Demo IAI Kitchen is loaded left-click the robot's model in the scene. Multiple widgets will pop up on the right of the screen. In the *RModel* widget open the *Plugins* section, where there are two plugins. Double-click the icon of *RROSCommunicationComponent* which opens the plugin editor. Under *ROSCommunication* change the *Websocket IPAddr* to the IP of your respective ROS Master, which is usually the IP of the machine you're currently running. Check the IP with `echo $ROS_MASTER_URI` if in doubt. Save your settings.
