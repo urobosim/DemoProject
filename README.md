@@ -37,9 +37,11 @@ This section requires a properly set-up full ROS installation (link in the requi
 
 ### Unreal Websocket Setup
 
-To link the Unreal Engine with ROS, a communication bridge must be established. The IP of the ROS master must be set at two locations.
+To link the Unreal Engine with ROS, a communication bridge must be established. The IP of the ROS master must be set at two locations. The port must stay on 9090.
 
 In the game instance for the WorldControl service. Select MyGameInstance in the top-most content folder and set the IP either to localhost, or the a specific ROS master. Save your settings.
+
+Update (not in the video): In MyGameInstance, set the Manager under World Control Game Instance to RWCManager.
 
 https://user-images.githubusercontent.com/13121212/130439081-7ae539a7-7092-4db6-a734-25af5544c06f.mp4
 
