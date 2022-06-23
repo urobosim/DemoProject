@@ -20,3 +20,7 @@
 [submodule "Plugins/UROSBridge"]
 	path = Plugins/UROSBridge
 	url = git@github.com:urobosim/UROSBridge.git
+[submodule "Plugins/UPhysicsBasedMC"]
+	path = Plugins/UPhysicsBasedMC
+	url = https://github.com/robcog-iai/UPhysicsBasedMC.git
+	branch = master
