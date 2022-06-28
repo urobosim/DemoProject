@@ -1,22 +1,22 @@
 [submodule "Plugins/URoboVision"]
 	path = Plugins/URoboVision
-	url = git@github.com:urobosim/URoboVision.git
+	url = https://github.com/urobosim/URoboVision.git
         branch = 4.25
 [submodule "Plugins/UUtils"]
 	path = Plugins/UUtils
-	url = git@github.com:urobosim/UUtils.git
+	url = https://github.com/urobosim/UUtils.git
         branch = 4.25_backward
 [submodule "Plugins/UROSWorldControl"]
 	path = Plugins/UROSWorldControl
-	url = git@github.com:urobosim/UROSWorldControl.git
+	url = https://github.com/urobosim/UROSWorldControl.git
         branch = 4.25
 [submodule "Plugins/URoboSim"]
 	path = Plugins/URoboSim
-	url = git@github.com:urobosim/URoboSim.git
+	url = https://github.com/urobosim/URoboSim.git
     branch = dev
 [submodule "Plugins/UTFPublisher"]
 	path = Plugins/UTFPublisher
-	url = git@github.com:urobosim/UTFPublisher.git
+	url = https://github.com/urobosim/UTFPublisher.git
 [submodule "Plugins/UROSBridge"]
 	path = Plugins/UROSBridge
-	url = git@github.com:urobosim/UROSBridge.git
+	url = https://github.com/urobosim/UROSBridge.git
