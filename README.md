@@ -21,12 +21,14 @@ git clone --recurse-submodules https://github.com/urobosim/DemoProject.git
 ```
 Launch the Unreal Engine together with the DemoProject by specifying the *.uproject* file to load.
 
-```bash
+```
+bash
 <unreal-path>/UnrealEngine-4.25.4-release/Engine/Binaries/Linux/UE4Editor <projects-path>/DemoProject425/DemoProject.uproject
 ```
 
 It is also possible to load the project via Unreal's project explorer, but this asks to create an identical copy for the DemoProject alongside the existing, which yields no benefit. On the first time loading the project a lot of thing are compiled, which can take a few minutes. When finished, the Unreal Engine shows a clear new world.
-~~~~
+
+
 To load the project's world, find the *Content Browser* widget at the bottom of the UI, go into Maps and double-click the **Demo IAI Kitchen**. Do **not** drag & drop it into the scene, as it will meddle with the loading process. All meshes and textures will be rendered now. The rendering process can take quite a while on an initial run. Within the central building of the scene the PR2 should be visible. You can navigate the scene by holding down the right mouse button and using WASDEF.
 
 https://user-images.githubusercontent.com/13121212/130438306-555f254d-433d-4037-8334-f936567b5aab.mp4
