@@ -2,9 +2,9 @@
 
 ## Requirements
 
-- Ubuntu 18.04
-- ROS Melodic full install http://wiki.ros.org/melodic/Installation/Ubuntu
-- Unreal Engine: [Install Guide](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/), specifically [version 4.25.4](https://github.com/EpicGames/UnrealEngine/archive/refs/tags/4.25.4-release.tar.gz) (downloads the tarball)
+- Ubuntu 20.04
+- ROS Noetic full install http://wiki.ros.org/noetic/Installation/Ubuntu
+- Unreal Engine: [Install Guide](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Linux/BeginnerLinuxDeveloper/SettingUpAnUnrealWorkflow/), specifically [version 4.27.2](https://github.com/EpicGames/UnrealEngine/archive/refs/heads/4.27.zip) (downloads the tarball)
   - Unreal requires a lot of disc space, at least 60 GB for the engine itself, and with several project even more. If space is scarse, remember to delete the tarball after unpacking and before building the engine.
   - **Making** the Unreal engine takes a lot of computaion time. Schedule it adequately.
 
@@ -59,7 +59,7 @@ To communicate with the robot in the Unreal Engine from a host-machine additiona
 
 First, install the following packages for commication via websockets, the TF2 buffer, kinematic models and a state publisher.
 ```
-sudo apt install ros-melodic-rosbridge-server ros-melodic-robot-state-publisher ros-melodic-joint-state-publisher-gui ros-melodic-tf ros-melodic-tf2 ros-melodic-tf2-ros ros-melodic-pr2-arm-kinematics
+sudo apt install ros-noetic-rosbridge-server ros-noetic-robot-state-publisher ros-noetic-joint-state-publisher-gui ros-noetic-tf ros-noetic-tf2 ros-noetic-tf2-ros ros-noetic-pr2-arm-kinematics
 ```
 Now create a catkin workspace for deps from repositories. Use wstool for git imports and rosdep for apt sources. 
 ```
