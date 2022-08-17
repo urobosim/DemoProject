@@ -23,7 +23,7 @@ Launch the Unreal Engine together with the DemoProject by specifying the *.uproj
 
 ```
 bash
-<unreal-path>/UnrealEngine-4.25.4-release/Engine/Binaries/Linux/UE4Editor <projects-path>/DemoProject425/DemoProject.uproject
+<unreal-path>/UnrealEngine-4.27.2release/Engine/Binaries/Linux/UE4Editor <projects-path>/DemoProject427/DemoProject.uproject
 ```
 
 It is also possible to load the project via Unreal's project explorer, but this asks to create an identical copy for the DemoProject alongside the existing, which yields no benefit. On the first time loading the project a lot of thing are compiled, which can take a few minutes. When finished, the Unreal Engine shows a clear new world.
