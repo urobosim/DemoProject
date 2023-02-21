@@ -20,3 +20,12 @@
 [submodule "Plugins/UROSBridge"]
 	path = Plugins/UROSBridge
 	url = https://github.com/urobosim/UROSBridge.git
+[submodule "UAivatar"]
+	path = Plugins/UAivatar
+	url = git@github.com:code-iai/UAivatar.git
+[submodule "Plugins/UPIDController"]
+	path = Plugins/UPIDController
+	url = git@github.com:robcog-iai/UPIDController.git
+[submodule "Plugins/UE4DTW"]
+	path = Plugins/UE4DTW
+	url = git@github.com:code-iai/UE4DTW.git
