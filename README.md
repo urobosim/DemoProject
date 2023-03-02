@@ -41,13 +41,27 @@ This section requires a properly set-up full ROS installation (link in the requi
 
 To link the Unreal Engine with ROS, a communication bridge must be established. The IP of the ROS master must be set at two locations. The port must stay on 9090.
 
-In the game instance for the WorldControl service. Select MyGameInstance in the top-most content folder and set the IP either to localhost, or the a specific ROS master. Save your settings.
+The relevant configurations can be found in Edit > Project Settings > Engine >
+Ros Settings. Further settings are URoboSim and WorldControl, which can also be
+found in section Engine.
 
-Update (not in the video): In MyGameInstance, set the Manager under World Control Game Instance to RWCManager.
+<!-- # Deprected -->
+<!-- In the game instance for the WorldControl service. Select MyGameInstance in the top-most content folder and set the IP either to localhost, or the a specific ROS master. Save your settings. -->
 
-https://user-images.githubusercontent.com/13121212/130439081-7ae539a7-7092-4db6-a734-25af5544c06f.mp4
+<!-- Update (not in the video): In MyGameInstance, set the Manager under World Control Game Instance to RWCManager. -->
 
-Secondly, in the PR2 plugin for ROS communication between further actions, services and topics. While the Demo IAI Kitchen is loaded left-click the robot's model in the scene. Multiple widgets will pop up on the right of the screen. In the *RModel* widget open the *Plugins* section, where there are two plugins. Double-click the icon of *RROSCommunicationComponent* which opens the plugin editor. Under *ROSCommunication* change the *Websocket IPAddr* to the IP of your respective ROS Master, which is usually the IP of the machine you're currently running. Check the IP with `echo $ROS_MASTER_URI` if in doubt. Save your settings.
+<!-- https://user-images.githubusercontent.com/13121212/130439081-7ae539a7-7092-4db6-a734-25af5544c06f.mp4 -->
+
+It is also possible to override the general ip in the PR2 plugin for ROS
+communication between further actions, services and topics. While the Demo IAI
+Kitchen is loaded left-click the robot's model in the scene. Multiple widgets
+will pop up on the right of the screen. In the *RModel* widget open the
+*Plugins* section, where there are two plugins. Double-click the icon of
+*RROSCommunicationComponent* which opens the plugin editor. Under
+*ROSCommunication* change the *Websocket IPAddr* to the IP of your respective
+ROS Master, which is usually the IP of the machine you're currently
+running. Check the IP with `echo $ROS_MASTER_URI` if in doubt. Than disable
+global 'use global ip' and save your settings.
 
 https://user-images.githubusercontent.com/13121212/130439180-3fec443d-5786-418d-a00f-938d20a4f9a3.mp4
 
@@ -61,7 +75,7 @@ First, install the following packages for commication via websockets, the TF2 bu
 ```
 sudo apt install ros-noetic-rosbridge-server ros-noetic-robot-state-publisher ros-noetic-joint-state-publisher-gui ros-noetic-tf ros-noetic-tf2 ros-noetic-tf2-ros ros-noetic-pr2-arm-kinematics
 ```
-Now create a catkin workspace for deps from repositories. Use wstool for git imports and rosdep for apt sources. 
+Now create a catkin workspace for deps from repositories. Use wstool for git imports and rosdep for apt sources.
 ```
 mkdir -p ~/unreal_project_ws/src
 cd ~/unreal_project_ws/src
@@ -86,7 +100,7 @@ If the build process wasn't successful, install the missing packages via apt, fi
 Finally, the connection to the ROS network can be established by launching the following nodes. Make sure the workspace is sourced.
 ```
 #Launch rosbridge for communication between unreal and ROS
-roslaunch rosbridge_server rosbridge_websocket.launch 
+roslaunch rosbridge_server rosbridge_websocket.launch
 
 # Launch urobosim world
 roslaunch urobosim_ros_config world.launch
