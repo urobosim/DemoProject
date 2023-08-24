@@ -1,13 +1,17 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{00046EE6-08D6-8137-7D22-3408505DA21A}",
+	"EngineAssociation": "{163FE562-8989-4763-9F26-0E82CE6A8931}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "DemoProject",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"CoreUObject"
+			]
 		}
 	]
 }
